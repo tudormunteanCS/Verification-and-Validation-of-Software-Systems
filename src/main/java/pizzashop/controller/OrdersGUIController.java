@@ -9,9 +9,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import pizzashop.model.MenuDataModel;
-import pizzashop.gui.OrdersGUI;
-import pizzashop.service.PaymentAlert;
-import pizzashop.service.PizzaService;
+import pizzashop.gui.PaymentAlert;
+import pizzashop.service.PaymentService;
 
 import java.util.Calendar;
 import java.util.List;
@@ -53,7 +52,7 @@ public class OrdersGUIController {
         this.totalAmount = totalAmount;
     }
 
-    private PizzaService service;
+    private PaymentService service;
     private int tableNumber;
 
     public ObservableList<String> observableList;
@@ -66,7 +65,7 @@ public class OrdersGUIController {
         //Default constructor Required for JavaFX FXML loader
     }
 
-    public void setService(PizzaService service, int tableNumber){
+    public void setService(PaymentService service, int tableNumber){
         this.service=service;
         this.tableNumber=tableNumber;
         initData();

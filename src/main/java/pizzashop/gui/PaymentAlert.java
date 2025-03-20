@@ -1,16 +1,17 @@
-package pizzashop.service;
+package pizzashop.gui;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import pizzashop.model.PaymentType;
+import pizzashop.service.PaymentService;
 
 import java.util.Optional;
 
 public class PaymentAlert implements PaymentOperation {
-    private PizzaService service;
+    private PaymentService service;
     private final String separtor = "--------------------------";
 
-    public PaymentAlert(PizzaService service){
+    public PaymentAlert(PaymentService service){
         this.service=service;
     }
 
