@@ -13,6 +13,7 @@ public class MenuRepository {
 
     public MenuRepository(){
         //Default constructor needed for framework usage(e.g. Hibernate)
+        //got
     }
 
     private void readMenu(){
