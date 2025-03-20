@@ -8,6 +8,7 @@ import java.util.Optional;
 
 public class PaymentAlert implements PaymentOperation {
     private PizzaService service;
+    private final String separtor = "--------------------------";
 
     public PaymentAlert(PizzaService service){
         this.service=service;
@@ -15,23 +16,23 @@ public class PaymentAlert implements PaymentOperation {
 
     @Override
     public void cardPayment() {
-        System.out.println("--------------------------");
+        System.out.println(separtor);
         System.out.println("Paying by card...");
         System.out.println("Please insert your card!");
-        System.out.println("--------------------------");
+        System.out.println(separtor);
     }
     @Override
     public void cashPayment() {
-        System.out.println("--------------------------");
+        System.out.println(separtor);
         System.out.println("Paying cash...");
         System.out.println("Please show the cash...!");
-        System.out.println("--------------------------");
+        System.out.println(separtor);
     }
     @Override
     public void cancelPayment() {
-        System.out.println("--------------------------");
+        System.out.println(separtor);
         System.out.println("Payment choice needed...");
-        System.out.println("--------------------------");
+        System.out.println(separtor);
     }
       public void showPaymentAlert(int tableNumber, double totalAmount ) {
         Alert paymentAlert = new Alert(Alert.AlertType.CONFIRMATION);

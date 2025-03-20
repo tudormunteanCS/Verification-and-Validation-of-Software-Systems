@@ -62,7 +62,9 @@ public class OrdersGUIController {
     private Calendar now = Calendar.getInstance();
     private static double totalAmount;
 
-    public OrdersGUIController(){ }
+    public OrdersGUIController(){
+        //Default constructor Required for JavaFX FXML loader
+    }
 
     public void setService(PizzaService service, int tableNumber){
         this.service=service;

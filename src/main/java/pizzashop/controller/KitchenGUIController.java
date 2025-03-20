@@ -10,7 +10,7 @@ import java.util.Calendar;
 
 public class KitchenGUIController {
     @FXML
-    private ListView kitchenOrdersList;
+    private ListView<String> kitchenOrdersList;
     @FXML
     public Button cook;
     @FXML
