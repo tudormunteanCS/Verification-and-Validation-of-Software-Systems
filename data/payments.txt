@@ -26,8 +26,11 @@
 5,Card,0.0
 1,Cash,0.0
 1,Card,0.0
+<<<<<<< HEAD
 1,Card,0.0
 1,Card,0.0
 2,Card,0.0
 1,Card,0.0
 1,Card,30.98
+=======
+>>>>>>> 7961a0ca7a48b2639bfc0c2798f286a0c69a39ad
