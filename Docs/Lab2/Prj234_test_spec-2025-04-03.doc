@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/><title>testspec Proiect234 - lmir3359_BBT</title>
+<link type="text/css" rel="stylesheet" href="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/css/tl_documents.css" />
+<style type="text/css" media="print">.notprintable { display:none;}</style>
+</head>
+<body>
+<div>
+<div style="float:right;">TestLink Community [configure $tlCfg-&gt;document_generator-&gt;company_name]</div>
+<div>&nbsp;</div><hr />
+<p style="text-align: center;"><img alt="TestLink logo" title="configure using $tlCfg->document_generator->company_logo"  width= height= src="https://www.scs.ubbcluj.ro/testlink/gui/themes/default/images/tl-logo-transparent-25.png" /></p></div>
+<div class="doc_title"><p>Test Specification</p></div>
+<div class="doc_title" style="text-align:left;margin: auto;"><p>Test Project: Proiect234<br/>Test Suite: Proiect234 - lmir3359_BBT</p></div>
+<div class="summary"><p id="printedby">Printed by TestLink on 03/04/2025</p></div>
+<div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
+<h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.lmir3359_BBT</a></b></p>
+<p style="padding-left: 45px;"><a href="#toc_tc24857">Prj234-23: EcpValidPayTestCase</a></p><p style="padding-left: 45px;"><a href="#toc_tc24989">Prj234-24: EcpInvalidPayTestCase</a></p><p style="padding-left: 45px;"><a href="#toc_tc24996">Prj234-25: BvaValidPayTestCase</a></p><p style="padding-left: 45px;"><a href="#toc_tc24999">Prj234-26: BvaInvalidPayTestCase</a></p></div><h1 class="doclevel" >Scope</h1>
+<div class="txtlevel"><p>Proiect de testare pentru studentii din grupa 234.</p></div>
+ <br/><a name='toc_1'></a>
+<h1 class='doclevel'>1.Test Suite : lmir3359_BBT</h1>
+<a name="toc_tc24857"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-23: EcpValidPayTestCase&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">lmir3359</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Last edit by:</span></td><td colspan="3">mtir3376</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Se verifică acceptarea unui payment valid cu masa 3, metoda Card și suma 45.50 lei.</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>- Masa 3 este activă &icirc;n aplicație<br />
+- Aplicația rulează și serviciul PizzaService este inițializat<br />
+&nbsp;</p>
+</td></tr><tr><td><span class="label">#:</span></td><td><span class="label">Step actions:</span></td><td><span class="label">Expected Results:</span></td></tr><tr><td width="5">1</td><td><p>1.Selecteaza masa 3</p>
+
+<p>2. Apasa butonul Add to order pizzas</p>
+
+<p>3.Apasa butonul Place Order</p>
+
+<p>4.Apasa butonul Order Served</p>
+
+<p>5.Apasa butonul Pay Order</p>
+
+<p>6.Alege optiunea: &quot;Pay by Card&quot;</p>
+</td><td><p>- Plata este salvată cu succes &icirc;n aplicație<br />
+- Obiectul Payment este adăugat &icirc;n payRepo cu:<br />
+&nbsp; &nbsp; table = 3<br />
+&nbsp; &nbsp; type = Card<br />
+&nbsp; &nbsp; amount = 45.50<br />
+&nbsp;</p>
+</td></tr><tr><td width="5">2</td><td></td><td></td></tr><tr><td width="5">3</td><td></td><td></td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F01:  Realizarea unei plati [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24989"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-24: EcpInvalidPayTestCase&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">mtir3376</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Se verifică comportamentul aplicației la introducerea unui payment cu o valoare invalidă pentru numărul mesei (&icirc;n afara intervalului valid 1&ndash;8). Se folosește exemplul: masa = 10, metodă = Cash, suma = 50.00 lei.<br />
+&nbsp;</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>- Aplicația este pornită<br />
+- PizzaService este inițializat<br />
+- Masa 10 **nu există** &icirc;n aplicație (masa validă este &icirc;n intervalul [1, 8])<br />
+&nbsp;</p>
+</td></tr><tr><td><span class="label">#:</span></td><td><span class="label">Step actions:</span></td><td><span class="label">Expected Results:</span></td></tr><tr><td width="5">1</td><td><p>1.Apeleaza functia&nbsp;addPayment cu parametrii:</p>
+
+<p>- tableNumber = 10</p>
+
+<p>-paymentType = Card<br />
+&nbsp;- totalAmount = 50.00</p>
+</td><td><p>- Plata nu trebuie procesată.<br />
+- Niciun obiect Payment nu este adăugat &icirc;n payRepo.<br />
+- Se aruncă o excepție sau se &icirc;nregistrează un mesaj de eroare (&icirc;n funcție de implementare).</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F01:  Realizarea unei plati [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24996"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-25: BvaValidPayTestCase&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">mtir3376</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Verificarea comportamentului aplicației la limita inferioară validă a parametrului amount. Se folosește valoarea amount = 0.0, care este permisă.</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><ul>
+	<li>
+	<p>Aplicația rulează corect.</p>
+	</li>
+	<li>
+	<p>Masa 3 este validă.</p>
+	</li>
+	<li>
+	<p>PizzaService este inițializat</p>
+	</li>
+</ul>
+</td></tr><tr><td><span class="label">#:</span></td><td><span class="label">Step actions:</span></td><td><span class="label">Expected Results:</span></td></tr><tr><td width="5">1</td><td><p>1. Apelează metoda addPayment cu următorii parametri:</p>
+
+<p>&nbsp; &nbsp;- tableNumber = 3 (valid)<br />
+&nbsp; &nbsp;- paymentType = Card<br />
+&nbsp; &nbsp;- totalAmount = 0.0 (valoare de graniță validă)<br />
+&nbsp;</p>
+</td><td><p>- Plata este procesată cu succes.<br />
+- Obiectul Payment este adăugat &icirc;n payRepo cu:<br />
+&nbsp; &nbsp; table = 3<br />
+&nbsp; &nbsp; type = Card<br />
+&nbsp; &nbsp; amount = 0.0<br />
+&nbsp;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F01:  Realizarea unei plati [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+<a name="toc_tc24999"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-26: BvaInvalidPayTestCase&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">mtir3376</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Verificarea comportamentului aplicației la o valoare <strong>sub limita validă</strong> pentru amount. Se folosește amount = -0.01, care este invalid.</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><ul>
+	<li>
+	<p>Aplicația este pornită.</p>
+	</li>
+	<li>
+	<p>Masa 3&nbsp;este validă.</p>
+	</li>
+</ul>
+</td></tr><tr><td><span class="label">#:</span></td><td><span class="label">Step actions:</span></td><td><span class="label">Expected Results:</span></td></tr><tr><td width="5">1</td><td><p>1. Apelează metoda addPayment cu următorii parametri:</p>
+
+<p>&nbsp; &nbsp;- tableNumber = 4 (valid)<br />
+&nbsp; &nbsp;- paymentType = Cash<br />
+&nbsp; &nbsp;- totalAmount = -0.01 (valoare sub limita minimă acceptată)<br />
+&nbsp;</p>
+</td><td><p>- Plata NU este acceptată de sistem.<br />
+- Nu se adaugă niciun obiect Payment &icirc;n payRepo.<br />
+- Este returnată o exceptie<br />
+&nbsp;</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F01:  Realizarea unei plati [Version : 1]<br /></td></tr>
+<tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
+</table>
+</div>
+
+</body>
+</html>
