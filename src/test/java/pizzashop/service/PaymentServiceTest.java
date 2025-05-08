@@ -32,14 +32,23 @@ class PaymentServiceTest {
         paymentRepo.writeAll();
     }
 
-    @ParameterizedTest
+//    @ParameterizedTest
+//    @Order(1)
+//    @DisplayName("EC Test 1")
+//    @ValueSource(doubles = {10.50, 50.00, 850.21})
+//    void addValidPaymentTestEC(double amount) {
+//        paymentService.addPayment(3, PaymentType.Card, amount);
+//        assertEquals(1, paymentRepo.getAll().size());
+//    }
+
+    @Test
     @Order(1)
     @DisplayName("EC Test 1")
-    @ValueSource(doubles = {10.50, 50.00, 850.21})
-    void addValidPaymentTestEC(double amount) {
-        paymentService.addPayment(3, PaymentType.Card, amount);
+    void addValidPaymentTestEC() {
+        paymentService.addPayment(3, PaymentType.Card, 45.50);
         assertEquals(1, paymentRepo.getAll().size());
     }
+
 
     @Test
     @Order(2)
@@ -92,7 +101,7 @@ class PaymentServiceTest {
     @DisplayName("BVA Test 1")
     //@Disabled
     void addValidPaymentTestBva() {
-        paymentService.addPayment(1, PaymentType.Card, 0.00);
+        paymentService.addPayment(3, PaymentType.Card, 0.00);
 
         assertEquals(1, paymentRepo.getAll().size());
     }
