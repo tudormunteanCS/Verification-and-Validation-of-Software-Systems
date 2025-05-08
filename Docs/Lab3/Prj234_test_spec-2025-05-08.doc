@@ -15,34 +15,50 @@
 <div class="summary"><p id="printedby">Printed by TestLink on 08/05/2025</p></div>
 <div class="pagefooter" id="copyright">2012 &copy; TestLink Community</div>
 <h1 class="general" style="page-break-before: always">Table Of Contents</h1><div class="toc"><p style="padding-left: 20px;"><b><a href="#toc_1">1.lmir3359_WBT</a></b></p>
-<p style="padding-left: 45px;"><a href="#toc_tc26500">Prj234-83: AdaugarePizzaValid</a></p><p style="padding-left: 45px;"><a href="#toc_tc26502">Prj234-84: AdaugarePizzaInvalid</a></p></div><h1 class="doclevel" >Scope</h1>
+<p style="padding-left: 45px;"><a href="#toc_tc26500">Prj234-83: TotalIncasariValid</a></p><p style="padding-left: 45px;"><a href="#toc_tc26502">Prj234-84: TotalIncasariInvalid</a></p></div><h1 class="doclevel" >Scope</h1>
 <div class="txtlevel"><p>Proiect de testare pentru studentii din grupa 234.</p></div>
  <br/><a name='toc_1'></a>
 <h1 class='doclevel'>1.Test Suite : lmir3359_WBT</h1>
-<div><p>Se testeaza adaugarea unei pizza la comanda</p>
-</div><a name="toc_tc26500"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-83: AdaugarePizzaValid&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<div><p>Se testeaza afisarea totalului de incasari pentru fiecare tip de plata la inchiderea restaurantului.</p>
+</div><a name="toc_tc26500"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-83: TotalIncasariValid&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
 <tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">mtir3376</td></tr>
-<tr><td colspan="4"><span class="label">Summary:</span><br /><p>AdaugarePizzaValid</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>masa este activa</p>
-</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Last edit by:</span></td><td colspan="3">iair3353</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Restaurantul s-a inchis.<br />
+<br />
+Se da un tip de plata (CASH/CARD) si se returneaza totalul incasarilor pentru acel tip de plata.<br />
+<br />
+Totalul incasarilor este un numar real pozitiv.</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>restaurant inchis</p>
+
+<p>plata este CASH/CARD</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
-<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
-<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F02:  Adaugare produs la comanda [Version : 1]<br /></td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >pizzashop.service.PaymentServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >pizzashop.service.PaymentServiceTest#getTotalAmountTest1</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F02:  Afisare total incasari [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
 </div>
-<a name="toc_tc26502"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-84: AdaugarePizzaInvalid&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
+<a name="toc_tc26502"></a><p>&nbsp;</p><div> <table class="tc" width="90%" ><tr><th colspan="4">Test Case Prj234-84: TotalIncasariInvalid&nbsp;<span style="font-size: 80%;">[Version  : 1]</span></th></tr>
 <tr><td width="20%" valign="top"><span class="label">Author:</span></td><td colspan="3">mtir3376</td></tr>
-<tr><td colspan="4"><span class="label">Summary:</span><br /><p>AdaugarePizzaInvalid</p>
-</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>.</p>
-</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Manual</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Last edit by:</span></td><td colspan="3">iair3353</td></tr>
+<tr><td colspan="4"><span class="label">Summary:</span><br /><p>Restaurantul este inchis.</p>
+
+<p>Se da un tip de plata (CASH/CARD) si va returna totalul incasarilor care au tipul de plata respectiv.</p>
+
+<p>Totalul incasarilor este un numar real pozitiv.</p>
+</td></tr><tr><td colspan="4"><span class="label">Preconditions:</span><br /><p>restaurantul este inchis</p>
+
+<p>plata este CASH/CARD<br />
+<br />
+nu s-a realizat nicio plata pana la inchiderea restaurantului</p>
+</td></tr><tr><td width="20%" valign="top"><span class="label">Execution type:</span></td><td colspan="3">Automated</td></tr>
 <tr><td width="20%" valign="top"><span class="label">Estimated exec. duration (min):</span></td><td colspan="3"></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Importance:</span></td><td colspan="3">Medium</td></tr>
-<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" ></td></tr>
-<tr><td > name of the test method:</td><td  colspan = "3" ></td></tr>
-<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F02:  Adaugare produs la comanda [Version : 1]<br /></td></tr>
+<tr><td colspan="4"></td></tr><tr><td > name of the autotest class:</td><td  colspan = "3" >pizzashop.service.PaymentServiceTest</td></tr>
+<tr><td > name of the test method:</td><td  colspan = "3" >pizzashop.service.PaymentServiceTest#getTotalAmountTest2</td></tr>
+<tr><td width="20%" valign="top"><span class="label">Requirements</span><td colspan="3">lmir3359_F02:  Afisare total incasari [Version : 1]<br /></td></tr>
 <tr><td width="20%" valign="top"><span class="label">Keywords:</span></td><td colspan="3">&nbsp;None<br/></td></tr>
 </table>
 </div>

@@ -32,6 +32,39 @@ class PaymentServiceTest {
         paymentRepo.writeAll();
     }
 
+    @Test
+    @DisplayName("TC_01")
+    void getTotalAmountTest1(){
+        paymentService.addPayment(3, PaymentType.Cash, 45.50);
+        assertEquals(45.50, paymentService.getTotalAmount(PaymentType.Cash));
+    }
+
+    @Test
+    @DisplayName("TC_02")
+    void getTotalAmountTest2(){
+        assertEquals(0.0, paymentService.getTotalAmount(PaymentType.Cash));
+        assertEquals(0.0, paymentService.getTotalAmount(PaymentType.Card));
+    }
+
+    @Test
+    @DisplayName("TC_03")
+    void getTotalAmountTest3(){
+        paymentService.addPayment(3, PaymentType.Cash, 45.50);
+        assertEquals(0.0, paymentService.getTotalAmount(PaymentType.Card));
+    }
+
+    @Test
+    @DisplayName("TC_04")
+    void getTotalAmountTest4(){
+        paymentService.addPayment(4, PaymentType.Card, 45.50);
+        paymentService.addPayment(5, PaymentType.Cash, 25.50);
+        paymentService.addPayment(6, PaymentType.Card, 45.50);
+        assertEquals(91.0, paymentService.getTotalAmount(PaymentType.Card));
+    }
+
+
+
+
 //    @ParameterizedTest
 //    @Order(1)
 //    @DisplayName("EC Test 1")
@@ -40,100 +73,104 @@ class PaymentServiceTest {
 //        paymentService.addPayment(3, PaymentType.Card, amount);
 //        assertEquals(1, paymentRepo.getAll().size());
 //    }
+//
+//    @Test
+//    @Order(1)
+//    @DisplayName("EC Test 1")
+//    void addValidPaymentTestEC1() {
+//        paymentService.addPayment(3, PaymentType.Card, 45.50);
+//        assertEquals(1, paymentRepo.getAll().size());
+//    }
+//
+//
+//    @Test
+//    @Order(2)
+//    @DisplayName("EC Test 2")
+//    void addInvalidPaymentTestEC() {
+//        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+//            paymentService.addPayment(10, PaymentType.Card, 50.00);
+//        }, "Expected addPayment to throw, but it didn't");
+//
+//        assertEquals("Table number must be between 1 and 8.", thrown.getMessage());
+//    }
+//
+//
+//    @Test
+//    @Order(3)
+//    @DisplayName("EC Test 3")
+//    void addInvalidPaymentTestEC2() {
+//        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+//            paymentService.addPayment(5, PaymentType.Card, 1250.33);
+//        }, "Expected addPayment to throw, but it didn't");
+//
+//        assertEquals("Amount must be between 0.0 and 1000.0.", thrown.getMessage());
+//    }
+//
+//    @Test
+//    @Order(4)
+//    @DisplayName("EC Test 4")
+//    void addInvalidPaymentTestEC3() {
+//        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+//            paymentService.addPayment(5, PaymentType.Card, -23.01);
+//        }, "Expected addPayment to throw, but it didn't");
+//
+//        assertEquals("Amount must be between 0.0 and 1000.0.", thrown.getMessage());
+//    }
+//
+//    @Test
+//    @Order(5)
+//    @DisplayName("EC Test 5")
+//    void addInvalidPaymentTestEC4() {
+//        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+//            paymentService.addPayment(10, PaymentType.Card, -23.01);
+//        }, "Expected addPayment to throw, but it didn't");
+//
+//        assertEquals("Table number must be between 1 and 8. Amount must be between 0.0 and 1000.0.", thrown.getMessage());
+//
+//    }
+//
+//    @Test
+//    @Order(6)
+//    @DisplayName("BVA Test 1")
+//    //@Disabled
+//    void addValidPaymentTestBva() {
+//        paymentService.addPayment(3, PaymentType.Card, 0.00);
+//
+//        assertEquals(1, paymentRepo.getAll().size());
+//    }
+//
+//    @Test
+//    @Order(7)
+//    @DisplayName("BVA Test 2")
+//    void addValidPaymentTestBva2() {
+//        paymentService.addPayment(8, PaymentType.Card, 999.99);
+//    }
+//
+//    @Test
+//    @Order(8)
+//    @DisplayName("BVA Test 3")
+//    void addInvalidPaymentTestBva3() {
+//        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+//            paymentService.addPayment(9, PaymentType.Card, 33.3);
+//        }, "Expected addPayment to throw, but it didn't");
+//
+//        assertEquals("Table number must be between 1 and 8.", thrown.getMessage());
+//    }
+//
+//    @Test
+//    @Order(9)
+//    @DisplayName("BVA Test 4")
+//    void addInvalidPaymentTestBva4() {
+//        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
+//            paymentService.addPayment(5, PaymentType.Card, -0.01);
+//        }, "Expected addPayment to throw, but it didn't");
+//
+//        assertEquals("Amount must be between 0.0 and 1000.0.", thrown.getMessage());
+//    }
 
-    @Test
-    @Order(1)
-    @DisplayName("EC Test 1")
-    void addValidPaymentTestEC1() {
-        paymentService.addPayment(3, PaymentType.Card, 45.50);
-        assertEquals(1, paymentRepo.getAll().size());
-    }
 
 
-    @Test
-    @Order(2)
-    @DisplayName("EC Test 2")
-    void addInvalidPaymentTestEC() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            paymentService.addPayment(10, PaymentType.Card, 50.00);
-        }, "Expected addPayment to throw, but it didn't");
 
-        assertEquals("Table number must be between 1 and 8.", thrown.getMessage());
-    }
-
-
-    @Test
-    @Order(3)
-    @DisplayName("EC Test 3")
-    void addInvalidPaymentTestEC2() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            paymentService.addPayment(5, PaymentType.Card, 1250.33);
-        }, "Expected addPayment to throw, but it didn't");
-
-        assertEquals("Amount must be between 0.0 and 1000.0.", thrown.getMessage());
-    }
-
-    @Test
-    @Order(4)
-    @DisplayName("EC Test 4")
-    void addInvalidPaymentTestEC3() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            paymentService.addPayment(5, PaymentType.Card, -23.01);
-        }, "Expected addPayment to throw, but it didn't");
-
-        assertEquals("Amount must be between 0.0 and 1000.0.", thrown.getMessage());
-    }
-
-    @Test
-    @Order(5)
-    @DisplayName("EC Test 5")
-    void addInvalidPaymentTestEC4() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            paymentService.addPayment(10, PaymentType.Card, -23.01);
-        }, "Expected addPayment to throw, but it didn't");
-
-        assertEquals("Table number must be between 1 and 8. Amount must be between 0.0 and 1000.0.", thrown.getMessage());
-
-    }
-
-    @Test
-    @Order(6)
-    @DisplayName("BVA Test 1")
-    //@Disabled
-    void addValidPaymentTestBva() {
-        paymentService.addPayment(3, PaymentType.Card, 0.00);
-
-        assertEquals(1, paymentRepo.getAll().size());
-    }
-
-    @Test
-    @Order(7)
-    @DisplayName("BVA Test 2")
-    void addValidPaymentTestBva2() {
-        paymentService.addPayment(8, PaymentType.Card, 999.99);
-    }
-
-    @Test
-    @Order(8)
-    @DisplayName("BVA Test 3")
-    void addInvalidPaymentTestBva3() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            paymentService.addPayment(9, PaymentType.Card, 33.3);
-        }, "Expected addPayment to throw, but it didn't");
-
-        assertEquals("Table number must be between 1 and 8.", thrown.getMessage());
-    }
-
-    @Test
-    @Order(9)
-    @DisplayName("BVA Test 4")
-    void addInvalidPaymentTestBva4() {
-        IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
-            paymentService.addPayment(5, PaymentType.Card, -0.01);
-        }, "Expected addPayment to throw, but it didn't");
-
-        assertEquals("Amount must be between 0.0 and 1000.0.", thrown.getMessage());
-    }
 
 
 
