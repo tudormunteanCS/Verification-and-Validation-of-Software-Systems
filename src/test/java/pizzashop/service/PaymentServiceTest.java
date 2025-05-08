@@ -44,7 +44,7 @@ class PaymentServiceTest {
     @Test
     @Order(1)
     @DisplayName("EC Test 1")
-    void addValidPaymentTestEC() {
+    void addValidPaymentTestEC1() {
         paymentService.addPayment(3, PaymentType.Card, 45.50);
         assertEquals(1, paymentRepo.getAll().size());
     }
