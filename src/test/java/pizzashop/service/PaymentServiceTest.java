@@ -38,7 +38,6 @@ class PaymentServiceTest {
     @ValueSource(doubles = {10.50, 50.00, 850.21})
     void addValidPaymentTestEC(double amount) {
         paymentService.addPayment(3, PaymentType.Card, amount);
-
         assertEquals(1, paymentRepo.getAll().size());
     }
 
