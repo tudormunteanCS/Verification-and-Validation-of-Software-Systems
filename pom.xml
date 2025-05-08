@@ -124,6 +124,10 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.1</version>
         <configuration>
+          <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+          <useFile>true</useFile> <!-- ensures XML is written -->
+          <printSummary>true</printSummary>
+          <reportFormat>brief</reportFormat>
           <argLine>--add-opens pizzashop/pizzashop.service=ALL-UNNAMED</argLine>
         </configuration>
       </plugin>
